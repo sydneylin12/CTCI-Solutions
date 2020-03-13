@@ -17,6 +17,19 @@ public class Main {
         m.oneAway("a", "b"); //True
         m.oneAway("false", "true"); //False
         m.oneAway("pickle", "pickl"); //
+
+        int[][] arr = new int[10][10];
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
+                arr[i][j] = i * 10 + j;
+            }
+        }
+
+        arr[5][5] = 0;
+        m.zeroMatrix(arr);
+
+        //m.rotateMatrix(arr);
+        m.isRotatedSubstring("waterbottle", "o'Perbottlewat");
     }
 
     // 1.1, does a string have all unique  O(n)
@@ -118,6 +131,73 @@ public class Main {
 
         if(result.equals(b)){
             return true;
+        }
+        return false;
+    }
+
+    // Rotate a NxN matrix by 90 degrees
+    // O(n^2)
+    public int[][] rotateMatrix(int[][] mat){
+        int[][] newMat = new int[mat.length][mat.length];
+
+        for(int i = mat.length - 1; i >= 0; i--){
+            int[] temp = mat[i];
+            for(int j = 0; j < mat.length; j++){
+                newMat[j][mat.length - i - 1] = temp[j];
+            }
+        }
+
+        for(int i = 0; i < newMat.length; i++){
+            System.out.println(Arrays.toString(newMat[i]));
+        }
+
+        return newMat;
+    }
+
+    // 1.8 Zero matrix
+    // Convert a NxN matrix row and column to 0 if a zero is there
+    // O(n^2)
+    public int[][] zeroMatrix(int[][] mat){
+        int[][] newMat = mat.clone();
+
+        ArrayList<Integer> columnsChanged = new ArrayList<>();
+
+
+        for(int i = 0; i < mat.length; i++){
+            for(int j = 0; j < mat.length; j++){
+                if(mat[i][j] == 0){
+                    newMat[i] = new int[mat.length]; // new array of zeroes
+                    columnsChanged.add(i);
+                }
+            }
+        }
+
+        for(int i = 0; i < mat.length; i++){
+            for(int j = 0; j < columnsChanged.size(); j++){
+                newMat[i][columnsChanged.get(j)] = 0;
+            }
+        }
+
+        for(int i = 0; i < newMat.length; i++){
+            System.out.println(Arrays.toString(newMat[i]));
+        }
+
+        return newMat;
+    }
+
+    // Check for rotated substrings O(n)
+    public boolean isRotatedSubstring(String a, String b){
+        // Continue rotating A to get a substring in B
+        int count = 0;
+        while(count < a.length()){
+            if(b.contains(a)){ // Lmao called contains but still counts
+                System.out.println("Found a rotated substring!");
+                return true;
+            }
+            char temp = a.charAt(0);
+            a = a.substring(1, a.length());
+            a += temp;
+            count++;
         }
         return false;
     }
