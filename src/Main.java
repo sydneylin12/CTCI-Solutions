@@ -12,11 +12,6 @@ public class Main {
         //m.isPermutation("racecar", "rreccaa");
         //m.urlIfy("Mr 3ohn Smith");
         m.oneAway("pale", "bale"); //True
-        m.oneAway("pale", "ple"); //True
-        m.oneAway("pale", "ale"); //True
-        m.oneAway("a", "b"); //True
-        m.oneAway("false", "true"); //False
-        m.oneAway("pickle", "pickl"); //
 
         int[][] arr = new int[10][10];
         for(int i = 0; i < 10; i++){
@@ -26,8 +21,7 @@ public class Main {
         }
 
         arr[5][5] = 0;
-        m.zeroMatrix(arr);
-
+        //m.zeroMatrix(arr);
         //m.rotateMatrix(arr);
         m.isRotatedSubstring("waterbottle", "o'Perbottlewat");
     }
