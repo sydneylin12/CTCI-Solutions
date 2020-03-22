@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de5b9950-b679-49da-b21a-5599bc1ff432" name="Default Changelist" comment="Trees">
-      <change afterPath="$PROJECT_DIR$/src/BinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TreeNode.java" afterDir="false" />
+    <list default="true" id="de5b9950-b679-49da-b21a-5599bc1ff432" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Recursion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StackNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CTCI-Solutions/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/MyStack$StackNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/MyStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CTCI-Solutions/MyStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreeNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +38,12 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581212052552" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.BinaryTree">
+  <component name="RunManager" selected="Application.Recursion">
     <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BinaryTree" />
       <module name="CTCI-Solutions" />
@@ -71,14 +74,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Recursion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Recursion" />
+      <module name="CTCI-Solutions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.LinkedLists" />
       <item itemvalue="Application.MyStack" />
       <item itemvalue="Application.BinaryTree" />
+      <item itemvalue="Application.Recursion" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Recursion" />
         <item itemvalue="Application.BinaryTree" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MyStack" />
@@ -104,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584071434795</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Trees">
+      <created>1584152283864</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584152283864</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,18 +132,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Trees" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="115" key="#Project_Structure" timestamp="1584064160485">
+    <state x="320" y="115" key="#Project_Structure" timestamp="1584220156792">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1584064160485" />
+    <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1584220156792" />
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584064715492">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1584064715492" />
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1584148975232">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1584220258820">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1584148975232" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1584220258820" />
     <state x="457" y="241" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584064713868">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -133,30 +152,34 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="406" y="123" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1584149683186" />
-    <state x="353" y="52" key="CommitChangelistDialog2" timestamp="1584152266754">
+    <state x="353" y="52" key="CommitChangelistDialog2" timestamp="1584152283692">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="353" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584152266754" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1584152266797">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="353" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584152283692" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1584235544398">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584152266797" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584223269616" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1584071533158" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1584152266796">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1584235544398" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1584235544397">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584152266796" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584223269615" />
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1584071533157" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1584152266795">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1584235544397" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1584235544396">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584152266795" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584223269614" />
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1584071533156" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1584152266796">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1584235544396" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1584235544397">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584152266796" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584223269615" />
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1584071533157" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1584235544397" />
     <state width="1396" height="302" key="GridCell.Tab.1.bottom" timestamp="1584064705626">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

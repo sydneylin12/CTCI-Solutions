@@ -1,6 +1,6 @@
 // Tree node with 2 children
 // Abstract type must extend comparable to use compareTo
-public class TreeNode<T extends Comparable> implements Comparable<TreeNode>{
+public class TreeNode<T extends Comparable>{
 
     public T data;
     public TreeNode left;
@@ -16,10 +16,5 @@ public class TreeNode<T extends Comparable> implements Comparable<TreeNode>{
         this.data = data;
         this.left = left;
         this.right = right;
-    }
-
-    @Override
-    public int compareTo(TreeNode other) {
-        return this.data.compareTo(other.data);
     }
 }

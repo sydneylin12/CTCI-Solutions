@@ -9,6 +9,7 @@ public class BinaryTree<T extends Comparable> {
 
     // Constructors
     public BinaryTree(){
+        root = null;
         listOfDepths = new LinkedList[100];
         for(int i = 0; i < listOfDepths.length; i++){
             listOfDepths[i] = new LinkedList<>();
@@ -99,6 +100,8 @@ public class BinaryTree<T extends Comparable> {
         b2.addToList(b2.root, 0);
         b2.printLists();
         System.out.println(b1.isSubtree(b1.root, b2.root));
+
+        System.out.println(b1.validate(b1.root));
     }
 
     // Level-order traversal of node
@@ -228,6 +231,7 @@ public class BinaryTree<T extends Comparable> {
         return ret;
     }
 
+    // Helper method for 4.10 subtree problem
     public boolean helperSubtree(TreeNode<T> t1, TreeNode<T> t2){
         if(t1 == null && t2 == null){
             return true;
@@ -253,6 +257,28 @@ public class BinaryTree<T extends Comparable> {
                 break;
             }
             System.out.println(listOfDepths[i].toString());
+        }
+    }
+
+    // 4.5 - validate BST
+    public boolean validate(TreeNode<T> root){
+        // Null checks
+        if(root == null){
+            return true;
+        }
+        else if(root.left == null && root.right == null){
+            return true;
+        }
+
+        // Property violated
+        if(root.left != null && root.left.data.compareTo(root.data) >= 0) {
+            return false;
+        }
+        else if(root.right != null && root.right.data.compareTo(root.data) <= 0){
+            return false;
+        }
+        else{
+            return validate(root.left) && validate(root.right);
         }
     }
 }
