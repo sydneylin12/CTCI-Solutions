@@ -154,10 +154,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="406" y="123" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1440.900@0.0.1440.900" timestamp="1584149683186" />
-    <state x="471" y="62" key="CommitChangelistDialog2" timestamp="1586021776829">
+    <state x="471" y="62" key="CommitChangelistDialog2" timestamp="1586021790485">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="471" y="62" key="CommitChangelistDialog2/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586021776829" />
+    <state x="471" y="62" key="CommitChangelistDialog2/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586021790485" />
     <state x="353" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584152283692" />
     <state width="1878" height="232" key="GridCell.Tab.0.bottom" timestamp="1586021776870">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -209,6 +209,10 @@
     <state x="532" y="306" key="com.intellij.ide.util.TipDialog/-1440.611.1440.877/0.23.1920.973@0.23.1920.973" timestamp="1586018267974" />
     <state x="399" y="262" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1584064765517" />
     <state x="399" y="257" key="com.intellij.ide.util.TipDialog/0.23.1440.804@0.23.1440.804" timestamp="1584064133754" />
+    <state x="765" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586021800874">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="464" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586021800874" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1584064221193">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
