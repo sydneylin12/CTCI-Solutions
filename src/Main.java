@@ -7,10 +7,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         Main m = new Main();
-        //System.out.println(m.isUnique("abc"));
-        //System.out.println(m.isUnique("aabc"));
-        //m.isPermutation("racecar", "rreccaa");
-        //m.urlIfy("Mr 3ohn Smith");
         m.oneAway("pale", "bale"); //True
 
         int[][] arr = new int[10][10];
@@ -21,8 +17,6 @@ public class Main {
         }
 
         arr[5][5] = 0;
-        //m.zeroMatrix(arr);
-        //m.rotateMatrix(arr);
         m.isRotatedSubstring("waterbottle", "o'Perbottlewat");
     }
 
