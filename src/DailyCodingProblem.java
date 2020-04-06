@@ -1,13 +1,23 @@
 // Solutions to daily coding problem emails
+
 import java.util.*;
 
 public class DailyCodingProblem {
 
+    /**
+     * Main method for doing daily coding problems
+     * @param args command line arguments
+     */
     public static void main(String[] args){
         //int[] arr = {2, 3, 10, 5, 7};
         //System.out.println(twoSum(arr, 17));
-        int[] arr = {1, 2, 3, 4, 5};
-        allProduct(arr);
+        //int[] arr = {1, 2, 3, 4, 5};
+        //allProduct(arr);
+        TreeNode<String> node = new TreeNode("Root", new TreeNode("Left", new TreeNode("Left.Left"), null), new TreeNode("Right"));
+        String ser = serialize(node);
+        System.out.println(ser);
+        TreeNode<String> des = deserialize(ser);
+        System.out.println(des.left.left.data);
     }
 
     /**
@@ -89,5 +99,99 @@ public class DailyCodingProblem {
         }
         System.out.println("No division solution: " + Arrays.toString(ret));
         return ret;
+    }
+
+    /**
+     * Problem 3, part a
+     * @param root the root node/passed in node
+     * @return a string representation of the tree
+     */
+    public static String serialize(TreeNode root){
+        // Runs in O(n)
+        // Return if null, error handling
+        if(root == null){
+            return null;
+        }
+
+        // Create string representation of node starting with root.data
+        String s = root.data.toString();
+        // Separate with commas for same node
+        if(root.left != null){
+            s += "," + root.left.data;
+        }
+        else{
+            s += "," + null;
+        }
+        if(root.right != null){
+            s += "," + root.right.data;
+        }
+        else {
+            s += "," + null;
+        }
+
+        // Separate nodes with dashes for different nodes
+        if(root.left != null){
+            s += "-" + serialize(root.left);
+        }
+        if(root.right != null){
+            s += "-" + serialize(root.right);
+        }
+        return s;
+    }
+
+    /**
+     * Problem 3 part b
+     * @param s the string to be deserialized
+     * @return a node/tree made from the string
+     */
+    public static TreeNode<String> deserialize(String s){
+        // Runs in I think O(n^2) - create each new node n times and search arrays n times
+        String[] nodes = s.split("-");
+        String[][] convertedNodes = new String[nodes.length][3];
+
+        // Error check
+        if(nodes.length == 0){
+            return null;
+        }
+
+        // Convert into 2D array with 3 elements (data left right)
+        for(int i = 0; i < nodes.length; i++){
+            convertedNodes[i] = nodes[i].split(",");
+        }
+
+        // Get the first node
+        String data = convertedNodes[0][0];
+        String left = convertedNodes[0][1];
+        String right = convertedNodes[0][2];
+
+        int leftIdx = -1;
+        int rightIdx = -1;
+
+        for(int i = 0; i < convertedNodes.length; i++){
+            // Find left child unique index
+            if(left.equals(convertedNodes[i][0])){
+                leftIdx = i;
+            }
+            if(right.equals(convertedNodes[i][0])){
+                rightIdx = i;
+            }
+        }
+
+        TreeNode<String> newLeft = null;
+        TreeNode<String> newRight = null;
+
+        // If we can find the indexes
+        if(leftIdx != -1){
+            String leftSubtree = String.join("-", Arrays.copyOfRange(nodes, leftIdx, nodes.length));
+            newLeft = deserialize(leftSubtree);
+        }
+        if(rightIdx != -1){
+            String rightSubtree = String.join("-", Arrays.copyOfRange(nodes, rightIdx, nodes.length));
+            newRight = deserialize(rightSubtree);
+        }
+
+        // Initialize a node with either null or recursive call
+        TreeNode<String> root = new TreeNode<>(data, newLeft, newRight);
+        return root;
     }
 }

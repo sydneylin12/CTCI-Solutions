@@ -3,25 +3,29 @@ import java.util.HashMap;
 /**
  * A linked list custom class for CTCI
  */
-public class LinkedList<T extends Comparable> {
+public class MyList<T extends Comparable> implements Comparable {
 
     /**
      * Head node of the list (unused)
      */
     public ListNode<T> head;
+    public ListNode<T> tail;
+    private int size;
 
     /**
      * Empty constructor
      */
-    public LinkedList(){
+    public MyList(){
         head = null;
+        tail = null;
+        size = 0;
     }
 
     /**
      * Linked List main method
      */
     public static void main(String[] args){
-        LinkedList<Integer> list = new LinkedList<>();
+        MyList<Integer> list = new MyList<>();
         ListNode<Integer> mid = new ListNode<>(3);
         ListNode<Integer> a = new ListNode<>(7, new ListNode<>(6, new ListNode(7, new ListNode(6, new ListNode(6)))));
         ListNode<Integer> b = new ListNode<>(1, mid);
@@ -30,6 +34,45 @@ public class LinkedList<T extends Comparable> {
         delete(mid); // Delete the 3 from 1, 3, 2, 4
         System.out.println(b.toString());
         list.sumLists(a, b);
+    }
+
+    /**
+     * Add a node to the linked list
+     * @param data abstract data to be added
+     */
+    public void add(T data){
+        if(head == null){
+            head = new ListNode<>(data);
+            tail = head;
+            size = 1;
+        }
+        else{
+            ListNode<T> temp = new ListNode<T>(data);
+            tail.next = temp;
+            tail = temp;
+            size++;
+        }
+    }
+
+    /**
+     * Size of linked list
+     * @return the size or length
+     */
+    public int size(){
+        return size;
+    }
+
+    public T get(int i){
+        if(i > size){
+            throw new IndexOutOfBoundsException("Index OOB!");
+        }
+        else {
+            ListNode<T> current = head;
+            for (int x = 0; x < i; x++) {
+                current = current.next;
+            }
+            return current.data;
+        }
     }
 
     /**
@@ -132,5 +175,15 @@ public class LinkedList<T extends Comparable> {
         }
         System.out.println(head.toString());
         return head;
+    }
+
+    /**
+     * Just here for nested linked lists
+     * @param o dummy
+     * @return dummy
+     */
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

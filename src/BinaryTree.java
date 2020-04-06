@@ -1,30 +1,27 @@
+
 import java.util.*;
 
-// Binary tree class for chapter 4 of CTCI
-// Binary tree abstract type must also extend comparable
+/**
+ * Binary tree class
+ * @param <T> abstract data type
+ */
 public class BinaryTree<T extends Comparable> {
 
     public TreeNode<T> root;
-    public LinkedList<T>[] listOfDepths;
+    public MyList<MyList<T>> depths;
 
-    // Constructors
+    /**
+     * Binary tree default constructor
+     */
     public BinaryTree(){
         root = null;
-        listOfDepths = new LinkedList[100];
-        for(int i = 0; i < listOfDepths.length; i++){
-            listOfDepths[i] = new LinkedList<>();
-        }
+        depths = new MyList<MyList<T>>();
     }
 
-    public BinaryTree(T data){
-        root = new TreeNode<T>(data);
-        listOfDepths = new LinkedList[100];
-        for(int i = 0; i < listOfDepths.length; i++){
-            listOfDepths[i] = new LinkedList<>();
-        }
-    }
-
-    // Add a node into a binary tree
+    /**
+     * Binary SEARCH tree add function
+     * @param data the data to be added (not a node)
+     */
     public void add(T data){
         if(this.root == null){
             this.root = new TreeNode<T>(data);
@@ -57,33 +54,27 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
+    /**
+     * Main method for binary tree problems
+     * @param args command line arguments
+     */
     public static void main(String[] args){
-        BinaryTree<Integer> binaryTree = new BinaryTree<>(1);
-
+        BinaryTree<Integer> binaryTree = new BinaryTree<>();
         Integer[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         binaryTree.root = binaryTree.minimalTree(arr);
-        binaryTree.addToList(binaryTree.root, 0);
+        System.out.println("Balanced: " + binaryTree.isBalanced(binaryTree.root));
 
-        for(int i = 0; i < binaryTree.listOfDepths.length; i++){
-            if(binaryTree.listOfDepths[i].size() == 0){
-                break;
-            }
-            System.out.println(binaryTree.listOfDepths[i].toString());
-        }
-
-        System.out.println("Tree is balanced: " + binaryTree.isBalanced(binaryTree.root));
-
+        // Testing subtree method
         TreeNode<Integer> t1 = new TreeNode<>(1, new TreeNode(2, new TreeNode(3), null), null);
         TreeNode<Integer> t2 = new TreeNode<>(1, new TreeNode(2, new TreeNode(3), null), null);
         TreeNode<Integer> t3 = new TreeNode<>(1, new TreeNode(2, new TreeNode(4), null), null);
         TreeNode<Integer> t4 = new TreeNode<>(0, new TreeNode<>(1, new TreeNode(2, new TreeNode(3), null), null), null);
 
-        System.out.println(binaryTree.isSubtree(t1, t2));
-        System.out.println(binaryTree.isSubtree(t1, t3));
-        System.out.println(binaryTree.isSubtree(t4, t1));
+        //System.out.println(binaryTree.isSubtree(t1, t2));
+        //System.out.println(binaryTree.isSubtree(t1, t3));
+        //System.out.println(binaryTree.isSubtree(t4, t1));
 
         BinaryTree<Integer> b1 = new BinaryTree<>();
-        BinaryTree<Integer> b2 = new BinaryTree<>();
         b1.add(5);
         b1.add(2);
         b1.add(7);
@@ -91,20 +82,20 @@ public class BinaryTree<T extends Comparable> {
         b1.add(9);
         b1.add(1);
 
-        b2.add(2);
-        b2.add(1);
+        MyList<MyList<Integer>> levels = new MyList<>();
+        MyList<MyList<Integer>> list = b1.addToList(b1.root, 1, levels);
 
-        b1.addToList(b1.root, 0);
-        b1.printLists();
-
-        b2.addToList(b2.root, 0);
-        b2.printLists();
-        System.out.println(b1.isSubtree(b1.root, b2.root));
+        for(int i = 0; i < levels.size(); i++){
+            System.out.println(levels.get(i).size());
+        }
 
         System.out.println(b1.validate(b1.root));
     }
 
-    // Level-order traversal of node
+    /**
+     * Level order traversal from root node
+     * @param root the root node
+     */
     public void levelOrder(TreeNode root){
         int h = height(root);
         for(int i = 1; i <= h; i++){
@@ -112,25 +103,33 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
-    // Calculate the height of a node
+    /**
+     * Calculate height of tree node
+     * @param root a node
+     * @return
+     */
     int height(TreeNode root)
     {
         if (root == null)
             return 0;
         else
         {
-            int lheight = height(root.left);
-            int rheight = height(root.right);
-            if (lheight > rheight){
-                return(lheight+1);
+            int lHeight = height(root.left);
+            int rHeight = height(root.right);
+            if (lHeight > rHeight){
+                return(lHeight+1);
             }
             else{
-                return(rheight+1);
+                return(rHeight+1);
             }
         }
     }
 
-    // Print a node at a given level
+    /**
+     * Print a node at a given level when level = 1
+     * @param root the root node
+     * @param level the level of the node
+     */
     void printLevel (TreeNode root ,int level)
     {
         if (root == null){
@@ -146,9 +145,11 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
-    // 4.2 Minimal Tree
-    // Construct a minimal tree given a sorted array
-    // Recursive O(n)
+    /**
+     * 4.2 - construct a minimal tree with a sorted array
+     * @param arr sorted array of integers
+     * @return root node of a minimal tree
+     */
     public TreeNode<T> minimalTree(T[] arr){
         if(arr.length == 0){
             return null;
@@ -175,17 +176,39 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
-    // 4.3 List of Depths - return linked lists for each depth
-    public void addToList(TreeNode<T> root, int level){
+    /**
+     * 4.3 - list of depths, return linked list for each level of tree
+     * @param root the root node
+     * @return 2D linked list of depths and node data
+     */
+    public MyList<MyList<T>> addToList(TreeNode<T> root, int level, MyList<MyList<T>> levels){
+        /*
         if(root == null){
-            return;
+            return null;
         }
-        listOfDepths[level].add(root.data);
-        addToList(root.left, level + 1);
-        addToList(root.right, level + 1);
+        if(levels.size() != level){
+            System.out.println("Adding new list");
+            LinkedList<T> temp = new LinkedList<>();
+            temp.add(root.data);
+            levels.add(temp);
+        }
+        else{
+            System.out.println("Getting current level");
+            levels.get(level).add(root.data);
+        }
+
+        addToList(root.left, level + 1, levels);
+        addToList(root.right, level + 1, levels);
+        return levels;
+        */
+        return null;
     }
 
-    // 4.4 Check balanced tree
+    /**
+     * 4.4 - check if a tree is balanced
+     * @param root the root node
+     * @return true if the tree is balanced
+     */
     public boolean isBalanced(TreeNode root){
         if(root == null){
             return true;
@@ -198,7 +221,11 @@ public class BinaryTree<T extends Comparable> {
         }
     }
 
-    // 4.10 Check if t2 is a subtree of t1
+    /**
+     * 4.10 - checks if t2 is a subree of t1
+     * @param t1 first tree
+     * @param t2 second tree
+     */
     public boolean isSubtree(TreeNode<T> t1, TreeNode<T> t2){
         if(t1 == null){
             return false;
@@ -247,16 +274,6 @@ public class BinaryTree<T extends Comparable> {
         }
         else{
             return helperSubtree(t1.left, t2.left) && helperSubtree(t1.right, t2.right);
-        }
-    }
-
-    // Print linked list of nodes according to level
-    public void printLists(){
-        for(int i = 0; i < listOfDepths.length; i++){
-            if(listOfDepths[i].size() == 0){
-                break;
-            }
-            System.out.println(listOfDepths[i].toString());
         }
     }
 
