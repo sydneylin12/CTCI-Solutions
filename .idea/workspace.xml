@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="de5b9950-b679-49da-b21a-5599bc1ff432" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/DailyCodingProblem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CTCI-Solutions/DailyCodingProblem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CTCI-Solutions/LinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DailyCodingProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DailyCodingProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CTCI-Solutions/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StringsAndArrays.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Recursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Recursion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.BinaryTree">
+  <component name="RunManager" selected="Application.StringsAndArrays">
     <configuration name="BinaryTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BinaryTree" />
       <module name="CTCI-Solutions" />
@@ -71,8 +69,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Recursion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Recursion" />
+    <configuration name="StringsAndArrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringsAndArrays" />
       <module name="CTCI-Solutions" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -80,18 +78,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.BinaryTree" />
-      <item itemvalue="Application.Recursion" />
       <item itemvalue="Application.DailyCodingProblem" />
       <item itemvalue="Application.MyQueue" />
       <item itemvalue="Application.MyList" />
+      <item itemvalue="Application.StringsAndArrays" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringsAndArrays" />
         <item itemvalue="Application.BinaryTree" />
         <item itemvalue="Application.DailyCodingProblem" />
         <item itemvalue="Application.MyQueue" />
         <item itemvalue="Application.MyList" />
-        <item itemvalue="Application.Recursion" />
       </list>
     </recent_temporary>
   </component>
@@ -170,31 +168,31 @@
     </state>
     <state x="471" y="62" key="CommitChangelistDialog2/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586102969043" />
     <state x="353" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1584152283692" />
-    <state width="1878" height="232" key="GridCell.Tab.0.bottom" timestamp="1586194570243">
+    <state width="1878" height="232" key="GridCell.Tab.0.bottom" timestamp="1586211561701">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="232" key="GridCell.Tab.0.bottom/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586194570243" />
+    <state width="1878" height="232" key="GridCell.Tab.0.bottom/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586211561701" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1584223269616" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.806@0.23.1440.806" timestamp="1584071533158" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1584235544398" />
-    <state width="1878" height="232" key="GridCell.Tab.0.center" timestamp="1586194570241">
+    <state width="1878" height="232" key="GridCell.Tab.0.center" timestamp="1586211561699">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="232" key="GridCell.Tab.0.center/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586194570241" />
+    <state width="1878" height="232" key="GridCell.Tab.0.center/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586211561699" />
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1584223269615" />
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.806@0.23.1440.806" timestamp="1584071533157" />
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1584235544397" />
-    <state width="1878" height="232" key="GridCell.Tab.0.left" timestamp="1586194570241">
+    <state width="1878" height="232" key="GridCell.Tab.0.left" timestamp="1586211561698">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="232" key="GridCell.Tab.0.left/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586194570241" />
+    <state width="1878" height="232" key="GridCell.Tab.0.left/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586211561698" />
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1584223269614" />
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.806@0.23.1440.806" timestamp="1584071533156" />
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1584235544396" />
-    <state width="1878" height="232" key="GridCell.Tab.0.right" timestamp="1586194570242">
+    <state width="1878" height="232" key="GridCell.Tab.0.right" timestamp="1586211561700">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="232" key="GridCell.Tab.0.right/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586194570242" />
+    <state width="1878" height="232" key="GridCell.Tab.0.right/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586211561700" />
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1584223269615" />
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.806@0.23.1440.806" timestamp="1584071533157" />
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1584235544397" />
@@ -214,9 +212,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1396" height="302" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1584064705625" />
-    <state x="532" y="306" key="com.intellij.ide.util.TipDialog" timestamp="1586018267974">
-      <screen x="0" y="23" width="1920" height="973" />
+    <state x="532" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1586207609206">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="532" y="314" key="com.intellij.ide.util.TipDialog/-1440.588.1440.900/0.0.1920.1080@0.0.1920.1080" timestamp="1586207609206" />
     <state x="532" y="306" key="com.intellij.ide.util.TipDialog/-1440.611.1440.877/0.23.1920.973@0.23.1920.973" timestamp="1586018267974" />
     <state x="399" y="262" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1584064765517" />
     <state x="399" y="257" key="com.intellij.ide.util.TipDialog/0.23.1440.804@0.23.1440.804" timestamp="1584064133754" />

@@ -1,43 +1,57 @@
-
 import java.util.*;
 
+/**
+ * Class for chapter 1 of CTCI - strings and arrays
+ */
+public class StringsAndArrays {
 
-public class Main {
-
+    /**
+     * Main method
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        Main m = new Main();
-        m.oneAway("pale", "bale"); //True
-
-        int[][] arr = new int[10][10];
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                arr[i][j] = i * 10 + j;
-            }
-        }
-
-        arr[5][5] = 0;
-        m.isRotatedSubstring("waterbottle", "o'Perbottlewat");
+        System.out.println(palindromePermutation("atco cta"));
+        System.out.println(compress("aabcccccaaa"));
     }
 
-    // 1.1, does a string have all unique  O(n)
-    public boolean isUnique(String s){
+    /**
+     * 1.1 - String uniqueness
+     * @param s the string
+     * @return true if s has only unique characters
+     */
+    public static boolean isUnique(String s){
+        // O(n) time, O(n) space
         HashMap<Character, Integer> map = new HashMap<>();
         for(int i = 0; i < s.length(); i++){
-            // If the char is in the map
             if(map.containsKey(s.charAt(i))){
-                // Can default to returning because it is not unique
                 return false;
             }
             else{
                 map.put(s.charAt(i), 1);
             }
         }
+
+        //O(n^2) solution, O(1) space
+        /*
+        for(int i = 0; i < s.length() - 1; i++){
+            for(int j = i + 1; j < s.length(); j++){
+                if(s.charAt(i) == s.charAt(j)){
+                    return false;
+                }
+            }
+        }
+         */
         return true;
     }
 
-    // 1.2, check if 2 strings are permutations of each other O(n)
-    public boolean isPermutation(String a, String b){
+    /**
+     * 1.2 - check if a is a permutation of b
+     * @param a first string
+     * @param b second string
+     * @return true if a and b are permutations
+     */
+    public static boolean isPermutation(String a, String b){
+        // O(n + m) time and space
         if(a.length() != b.length()){
             return false; // Short cut
         }
@@ -65,27 +79,64 @@ public class Main {
 
         Set<Map.Entry<Character, Integer>> set1 = map.entrySet();
         Set<Map.Entry<Character, Integer>> set2 = map2.entrySet();
-        System.out.println("Permutation result: " + set1.equals(set2));
         return set1.equals(set2);
     }
 
-    // 1.3 URLify - does not use java default replace
-    public String urlIfy(String s){
+    /**
+     * 1.3 - turn string into URL
+     * @param s the string
+     * @return a URL version of the string
+     */
+    public static String urlIfy(String s){
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) == ' '){
                 String s1 = s.substring(0, i);
                 String s2= s.substring(i+1, s.length());
-                //System.out.println(s1 + "%20" + s2);
                 s = s1 + "%20" + s2;
             }
         }
-        System.out.println("New URL: " + s);
         return s;
     }
 
-    // 1.5 One away - is a string one edit away
-    // Can insert, remove, and replace
-    public boolean oneAway(String a, String b){
+
+    /**
+     * 1.4 - Check if a string is a permutation of a palindrome
+     * @param s the string
+     * @return true if s is a permutation of a palindrome
+     */
+    public static boolean palindromePermutation(String s){
+        // O(n) time and space
+        // Replace spaces
+        s = s.replace(" ", "");
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < s.length(); i++){
+            if(map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
+            }
+            else {
+                map.put(s.charAt(i), 1);
+            }
+        }
+
+        // Palindrome can only have 1 or 0 odd characters
+        int oddCount = 0;
+        for(Map.Entry<Character, Integer> entry : map.entrySet()){
+            if(entry.getValue() % 2 == 1){
+                oddCount++;
+            }
+        }
+
+        return oddCount <= 1 ? true : false;
+    }
+
+    /**
+     * 1.5 - one away
+     * Check if a string can be made by one edit
+     * @param a original string
+     * @param b target string
+     * @return true if string can be reached by one edit
+     */
+    public static boolean oneAway(String a, String b){
         if(Math.abs(a.length() - b.length()) > 1){
             return false; // Different lengths
         }
@@ -123,8 +174,46 @@ public class Main {
         return false;
     }
 
-    // Rotate a NxN matrix by 90 degrees
-    // O(n^2)
+    /**
+     * 1.6 - String compression
+     * Return a string with counts of letters instead of actual letters
+     * @param s the string to be compressed
+     * @return the compressed string, or the original string if the length is equal
+     */
+    public static String compress(String s){
+        // Error checks
+        if(s == null){
+            return null;
+        }
+        else if(s.length() <= 1){
+            return s;
+        }
+
+        // O(n) time
+        String ret = "";
+        int temp = 1;
+        char current = s.charAt(0);
+        for(int i = 1; i < s.length(); i++){
+            if(s.charAt(i) == current){
+                temp++;
+            }
+            else{
+                ret += String.valueOf(current) + temp;
+                temp = 1;
+            }
+            // Update current character
+            current = s.charAt(i);
+        }
+        // Add the extra at the very end
+        ret += String.valueOf(current) + temp;
+        return ret.length() >= s.length() ? s : ret;
+    }
+
+    /**
+     * 1.7 - Rotate NxN matrix 90 degrees
+     * @param mat the matrix
+     * @return the rotated matrix
+     */
     public int[][] rotateMatrix(int[][] mat){
         int[][] newMat = new int[mat.length][mat.length];
 
@@ -142,14 +231,16 @@ public class Main {
         return newMat;
     }
 
-    // 1.8 Zero matrix
-    // Convert a NxN matrix row and column to 0 if a zero is there
-    // O(n^2)
+    /**
+     * 1.8 - Zero matrix
+     * Return a matrix where every 0 fills the row and column with 0's
+     * @param mat the matrix
+     * @return the zeroed matrix
+     */
     public int[][] zeroMatrix(int[][] mat){
         int[][] newMat = mat.clone();
 
         ArrayList<Integer> columnsChanged = new ArrayList<>();
-
 
         for(int i = 0; i < mat.length; i++){
             for(int j = 0; j < mat.length; j++){
@@ -173,13 +264,17 @@ public class Main {
         return newMat;
     }
 
-    // Check for rotated substrings O(n)
+    /**
+     * 1.9 - Check for rotated substrings
+     * @param a the original string
+     * @param b the rotated string
+     * @return true if a is a substring of b rotated
+     */
     public boolean isRotatedSubstring(String a, String b){
         // Continue rotating A to get a substring in B
         int count = 0;
         while(count < a.length()){
             if(b.contains(a)){ // Lmao called contains but still counts
-                System.out.println("Found a rotated substring!");
                 return true;
             }
             char temp = a.charAt(0);
@@ -189,6 +284,4 @@ public class Main {
         }
         return false;
     }
-
-
 }
