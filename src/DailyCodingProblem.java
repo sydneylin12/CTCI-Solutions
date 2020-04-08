@@ -13,11 +13,12 @@ public class DailyCodingProblem {
         //System.out.println(twoSum(arr, 17));
         //int[] arr = {1, 2, 3, 4, 5};
         //allProduct(arr);
-        TreeNode<String> node = new TreeNode("Root", new TreeNode("Left", new TreeNode("Left.Left"), null), new TreeNode("Right"));
-        String ser = serialize(node);
-        System.out.println(ser);
-        TreeNode<String> des = deserialize(ser);
-        System.out.println(des.left.left.data);
+        //TreeNode<String> node = new TreeNode("Root", new TreeNode("Left", new TreeNode("Left.Left"), null), new TreeNode("Right"));
+        //String ser = serialize(node);
+        //System.out.println(ser);
+        //TreeNode<String> des = deserialize(ser);
+        //System.out.println(des.left.left.data);
+        System.out.println(missingPositive(new int[] {3, 4, -1, 1, 1, 1, 1}));
     }
 
     /**
@@ -194,4 +195,46 @@ public class DailyCodingProblem {
         TreeNode<String> root = new TreeNode<>(data, newLeft, newRight);
         return root;
     }
+
+    /**
+     * Problem 4
+     * Find the first missing positive integer in O(n) time and O(1) space
+     * Did not really understand this one
+     * Needed help on this one
+     * @param arr the array with one missing positive integer
+     * @return the missing positive integer
+     */
+    public static int missingPositive(int[] arr){
+        // The array can have at most n positive integers
+        // Find each integer's correct position and swap it there
+        int i = 0;
+        while(i < arr.length){
+            // Swap if integer is not in position
+            if(arr[i] > 0 && arr[i] <= arr.length && arr[arr[i] - 1] != arr[i]){
+                swap(arr, i, arr[i] - 1);
+                System.out.println(Arrays.toString(arr));
+            }
+            else{
+                i++;
+            }
+        }
+        i = 0;
+        while(i < arr.length && arr[i] == i + 1){
+            i++;
+        }
+        return i + 1;
+    }
+
+    /**
+     * Helper swap method for problem 4
+     * @param arr the array
+     * @param i first index
+     * @param j second index
+     */
+    public static void swap(int[] arr, int i, int j){
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+
 }
