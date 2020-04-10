@@ -19,6 +19,7 @@ public class DailyCodingProblem {
         //TreeNode<String> des = deserialize(ser);
         //System.out.println(des.left.left.data);
         System.out.println(missingPositive(new int[] {3, 4, -1, 1, 1, 1, 1}));
+        System.out.println(encoding("1313"));
     }
 
     /**
@@ -235,6 +236,42 @@ public class DailyCodingProblem {
         int temp = arr[j];
         arr[j] = arr[i];
         arr[i] = temp;
+    }
+
+    /**
+     * Problem 7 - string encoding
+     * For mapping 1 = a, 2 = b, ... 26 = z
+     * Return the number of ways a string can be encoded
+     * @param s the string to be encoded
+     */
+    public static int encoding(String s){
+        // Base case if we eliminate all substrings
+        if(s.length() == 0){
+            return 1;
+        }
+
+        String temp = String.valueOf(s.charAt(0));
+        int firstPath = 0;
+        int secondPath = 0;
+        int firstInt = Integer.parseInt(temp);
+        int firstTwo = 0;
+
+        // Can always parse first digit here
+        //System.out.println("First substring: " + s.substring(1));
+        if(firstInt > 0 && firstInt < 10){
+            firstPath = encoding(s.substring(1));
+        }
+
+        // Can parse second digit
+        if(s.length() > 1){
+            //System.out.println("Second substring: " + s.substring(2));
+            firstTwo = Integer.parseInt(s.substring(0, 2));
+            // Safety check for proper encoding
+            if(firstTwo > 9 && firstTwo < 27){
+                secondPath = encoding(s.substring(2));
+            }
+        }
+        return firstPath + secondPath;
     }
 
 }
