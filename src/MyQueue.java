@@ -38,7 +38,7 @@ public class MyQueue<T extends Comparable<T>> {
      * Helper method to print a queue
      */
     public void printQueue(){
-        head.print();
+        System.out.println(head.toString());
     }
 
     /**
@@ -90,16 +90,10 @@ public class MyQueue<T extends Comparable<T>> {
     }
 
     /**
-     * Main method for testing problems
-     * @param args command line arguments
+     * Return string representation of the queue
+     * @return a string describing the queue
      */
-    public static void main(String[] args){
-        MyQueue<Integer> q = new MyQueue<>();
-        q.enqueue(1);
-        q.enqueue(2);
-        q.enqueue(3);
-        q.enqueue(4);
-        q.dequeue();
-        q.printQueue();
+    public String toString(){
+        return head.toString();
     }
 }

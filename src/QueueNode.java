@@ -26,23 +26,6 @@ public class QueueNode<T extends Comparable> {
     }
 
     /**
-     * Prints the queue from the current node
-     */
-    public void print(){
-        QueueNode current = this;
-        System.out.print("[");
-        while(current != null){
-            System.out.print(current.data);
-            if(current.next != null){
-                System.out.print(", ");
-            }
-            current = current.next;
-        }
-        System.out.print("]");
-        System.out.println("");
-    }
-
-    /**
      * String representation of the queue starting at the current node
      * @return string representation of the queue
      */

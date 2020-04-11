@@ -1,7 +1,8 @@
-// Solutions to daily coding problem emails
-
 import java.util.*;
 
+/**
+ * Daily coding problem solutions
+ */
 public class DailyCodingProblem {
 
     /**
@@ -18,8 +19,12 @@ public class DailyCodingProblem {
         //System.out.println(ser);
         //TreeNode<String> des = deserialize(ser);
         //System.out.println(des.left.left.data);
-        System.out.println(missingPositive(new int[] {3, 4, -1, 1, 1, 1, 1}));
-        System.out.println(encoding("1313"));
+        //System.out.println(missingPositive(new int[] {3, 4, -1, 1, 1, 1, 1}));
+        //System.out.println(encoding("1313"));
+
+        TreeNode<Integer> root = new TreeNode<>(0, new TreeNode<>(1), new TreeNode<>(0,
+                new TreeNode<>(1, new TreeNode<>(1), new TreeNode<>(1)), new TreeNode<>(0)));
+        System.out.println(univalTree(root));
     }
 
     /**
@@ -272,6 +277,53 @@ public class DailyCodingProblem {
             }
         }
         return firstPath + secondPath;
+    }
+
+    /**
+     * Problem 9 - unival tree
+     * Return number of trees where all nodes under it have the same value
+     * @param t
+     * @return
+     */
+    public static int univalTree(TreeNode<Integer> t){
+        if(t == null){
+            return 0;
+        }
+        // If the root is a unival tree
+        if(isUnival(t)){
+            return 1 + univalTree(t.left) + univalTree(t.right);
+        }
+        else{
+            return univalTree(t.left) + univalTree(t.right);
+        }
+    }
+
+    /**
+     * Helper method for problem 9
+     * Checks if a tree is a unival tree by traversal
+     * @param t
+     * @return
+     */
+    public static boolean isUnival(TreeNode<Integer> t){
+        // Edge cases
+        if(t == null){
+            return true;
+        }
+        else if(t.left == null && t.right == null){
+            return true;
+        }
+        // Left subtree
+        else if(t.left != null && t.right == null){
+            return t.data == t.left.data && isUnival(t.left);
+        }
+        // Right subtree
+        else if(t.left == null && t.right != null){
+            return t.data == t.right.data && isUnival(t.right);
+        }
+        // Both subtrees
+        else{
+            return t.data == t.left.data && t.data == t.right.data && isUnival(t.left) && isUnival(t.right);
+        }
     }
 
 }

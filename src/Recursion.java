@@ -1,8 +1,14 @@
 import java.util.Arrays;
 
-// Class for chapter 8
+/**
+ * CTCI chapter 8 problems
+ */
 public class Recursion {
 
+    /**
+     * Main method
+     * @param args command line arguments
+     */
     public static void main(String[] args){
         System.out.println(stepCount(3));
         int[][] arr = new int[5][5];
@@ -10,17 +16,14 @@ public class Recursion {
         arr[1][1] = 1;
         arr[3][1] = 1;
         arr[4][1] = 1;
-
-        for(int i = 0; i < arr.length; i++){
-            System.out.println(Arrays.toString(arr[i]));
-        }
-
-        //(0,0), (1,0), (2,0), (2,0), (2,1), (2,2), (3,2), (3,2), (3,3), (3,3), (3,4),
-
         robotInGrid(arr, 0, 0, "");
     }
 
-    // 8.1 Step count
+    /**
+     * 8.1 - step count
+     * @param n number of steps remaining
+     * @return the number of ways a staircase can be ascended with steps of 1, 2, 3
+     */
     public static int stepCount(int n){
         if(n < 0){
             return 0;
@@ -35,8 +38,13 @@ public class Recursion {
         return a + b + c;
     }
 
-    // 8.2 Robot in grid
-    // 0 = free space, 1 = taken space
+    /**
+     * 8.2 - robot in grid
+     * @param mat the matrix
+     * @param r row index
+     * @param c col index
+     * @param path the current path of the robot
+     */
     public static void robotInGrid(int[][] mat, int r, int c, String path){
         path += "(" + r + "," + c + ")";
         if(r == mat.length - 1 && c == mat[0].length - 1){

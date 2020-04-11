@@ -7,7 +7,14 @@ import java.util.*;
  */
 public class BinaryTree<T extends Comparable> {
 
+    /**
+     * The root node
+     */
     public TreeNode<T> root;
+
+    /**
+     * Linked list of tree depths for CTCI problem
+     */
     public MyList<MyList<T>> depths;
 
     /**
