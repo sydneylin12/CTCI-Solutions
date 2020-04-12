@@ -22,13 +22,14 @@ public class DailyCodingProblem {
         //System.out.println(missingPositive(new int[] {3, 4, -1, 1, 1, 1, 1}));
         //System.out.println(encoding("1313"));
 
-        TreeNode<Integer> root = new TreeNode<>(0, new TreeNode<>(1), new TreeNode<>(0,
-                new TreeNode<>(1, new TreeNode<>(1), new TreeNode<>(1)), new TreeNode<>(0)));
-        System.out.println(univalTree(root));
+        //TreeNode<Integer> root = new TreeNode<>(0, new TreeNode<>(1), new TreeNode<>(0,
+                //new TreeNode<>(1, new TreeNode<>(1), new TreeNode<>(1)), new TreeNode<>(0)));
+        //System.out.println(univalTree(root));
+        System.out.println(nonAdjacentSum(new int[] {5, 1, 1, 5}));
     }
 
     /**
-     * Problem 1
+     * Problem 1 - two sum
      * @param arr the array
      * @param targ the target number
      * @return true if two numbers in an array sum to a target
@@ -77,7 +78,7 @@ public class DailyCodingProblem {
     }
 
     /**
-     * Problem 2
+     * Problem 2 - product of all array integers
      * @param arr an array of integers
      * @return a new array with each element as the product of all other elements except itself
      */
@@ -280,7 +281,7 @@ public class DailyCodingProblem {
     }
 
     /**
-     * Problem 9 - unival tree
+     * Problem 8 - unival tree
      * Return number of trees where all nodes under it have the same value
      * @param t
      * @return
@@ -299,7 +300,7 @@ public class DailyCodingProblem {
     }
 
     /**
-     * Helper method for problem 9
+     * Helper method for problem 8
      * Checks if a tree is a unival tree by traversal
      * @param t
      * @return
@@ -326,4 +327,76 @@ public class DailyCodingProblem {
         }
     }
 
+    /**
+     * Problem 9 - sum of non adj. integers
+     * My solution - O(n^2) time and O(n) space
+     * @param arr the array of integers
+     * @return the largest sum of non adjacent numbers
+     */
+    public static int nonAdjacentSum(int[] arr) {
+        //int sum = 0;
+        /*
+        int[] values = new int[arr.length];
+        int[] indices = new int[arr.length];
+
+        // Initialize the lists - O(n)
+        for(int i = 0 ; i < arr.length; i++){
+            indices[i] = i;
+            values[i] = arr[i];
+        }
+
+        // Use selection sort to swap values to sorted order - O(n^2)
+        for(int i = 0; i < values.length; i++){
+            for(int j = i; j < values.length; j++){
+                // Swap if greater
+                if(values[j] > values[i]){
+                    int temp = values[i];
+                    values[i] = values[j];
+                    values[j] = temp;
+
+                    int tempIdx = indices[i];
+                    indices[i] = indices[j];
+                    indices[j] = tempIdx;
+                }
+            }
+        }
+
+        // Sum up - O(n)
+        LinkedList<Integer> used = new LinkedList<>();
+        for(int i = 0; i < values.length; i++){
+            // Check for adjacent indices and continue if so
+            if(used.contains(indices[i] - 1) || used.contains(indices[i] + 1)){
+                continue;
+            }
+            else{
+                sum += values[i];
+                used.add(indices[i]);
+            }
+        }
+         */
+
+        // G4G solution
+        int incl = arr[0]; // Maximum sum when last element is included
+        int excl = 0; // Maximum sum when last element is excluded
+        int newExcl = 0; // Placeholder
+
+        // Loop once in O(n) time
+        for(int i = 1; i < arr.length; i++){
+            System.out.println(incl);
+            System.out.println(excl);
+
+            // Exclude the current element and possibly add its neighbor
+            if(incl > excl){
+                newExcl = incl;
+            }
+            else{
+                newExcl = excl;
+            }
+
+            incl = excl + arr[i];
+            excl = newExcl;
+        }
+
+        return incl > excl ? incl : excl;
+    }
 }
