@@ -1,4 +1,5 @@
 
+# Daily coding problem 6 - xor linked list
 # Use for dereferencing
 import _ctypes
 

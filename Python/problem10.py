@@ -1,5 +1,6 @@
 import time
 
+# Daily coding problem 10 - scheduler
 # Call a funciton f after n milliseconds
 def schedule(f, n):
     # Sleep for n milliseconds
