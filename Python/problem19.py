@@ -4,43 +4,48 @@ import sys
 
 def minCost(mat):
     indexes = []
-    # Reverse the matrix
-    for i in range(len(mat[0])): # 6
-        min = sys.maxsize
-        color = -1
-        for j in range(len(mat)): # 4
-            if mat[j][i] < min:
+    colors = []
+    n = len(mat)
+    k = len(mat[0])
 
-                # If we can choose any min value
+    # Reverse the matrix
+    for i in range(n):
+
+        # Minimum cost set to largest possible value (INT.MAX)
+        min = sys.maxsize
+        idx = -1 # Color set to none (-1)
+
+        for j in range(k):
+
+            # If the color is less than the minimum
+            if mat[i][j] < min:
+
+                # If we can choose any min value for first house
                 if len(indexes) == 0:
-                    min = mat[j][i]
-                    color = j
+                    min = mat[i][j]
+                    idx = j
 
                 # Color of the house is not adjacent
                 elif indexes[len(indexes) - 1] != j:
-                    min = mat[j][i]
-                    color = j
+                    min = mat[i][j]
+                    idx = j
 
                 # Color of the house is adjacent
                 else:
                     continue
 
-        indexes.append(color)
+        indexes.append(idx)
+        colors.append(min)
 
-    result = 0
-    for i in range(len(indexes)):
-        result += mat[indexes[i]][i]
-
-    return result
+    return sum(colors)
 
 
-# 6 houses, 4 colors
+# 4 = n, 6 = k
 mat = \
     [[7, 3, 8, 6, 1, 2],
      [5, 6, 7, 2, 4, 3],
      [10, 1, 4, 9, 7, 6],
      [10, 1, 4, 9, 7, 6]]
 
-# Solution: 5, 1, 4, 2, 1, 3
-
+# Solution: 8
 print(minCost(mat))
