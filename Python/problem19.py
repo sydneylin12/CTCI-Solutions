@@ -49,3 +49,16 @@ mat = \
 
 # Solution: 8
 print(minCost(mat))
+
+cost_matrix = \
+    [[7, 3, 8, 6, 1, 2],
+     [5, 6, 7, 2, 4, 3],
+     [10, 1, 4, 9, 7, 6],
+     [10, 1, 4, 9, 7, 6]]
+assert minCost(cost_matrix) == 8
+
+cost_matrix = \
+    [[7, 3, 8, 6, 1, 2],
+     [5, 6, 7, 2, 4, 3],
+     [10, 1, 4, 9, 7, 6]]
+assert minCost(cost_matrix) == 4

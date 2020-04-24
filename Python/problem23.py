@@ -25,7 +25,7 @@ def shortestPath(start, end, mat, visited):
         return sys.maxsize
 
     # Got to the end
-    if i == end[0] and j == end[1]:
+    if (i, j) == end:
         return 0
 
     up = sys.maxsize
@@ -35,32 +35,38 @@ def shortestPath(start, end, mat, visited):
 
     # Down
     if i + 1 < len(mat) and (i + 1, j) not in visited:
-        print("Down")
         newStart = (i + 1, j)
         down = 1 + shortestPath(newStart, end, mat, visited)
         visited = original.copy()
 
     # Up
     if i - 1 >= 0 and (i - 1, j) not in visited:
-        print("Up")
         newStart = (i - 1, j)
         up = 1 + shortestPath(newStart, end, mat, visited)
         visited = original.copy()
 
     # Right
     if j + 1 < len(mat[0]) and (i, j + 1) not in visited:
-        print("Left")
         newStart = (i, j + 1)
         right = 1 + shortestPath(newStart, end, mat, visited) 
         visited = original.copy()
 
     # Left
     if j - 1 >= 0 and (i, j - 1) not in visited:
-        print("Right")
         newStart = (i, j - 1)
         left = 1 + shortestPath(newStart, end, mat, visited) 
         visited = original.copy()
 
     return min(up, down, left, right)
 
-print(shortestPath(start, end, mat, []))
+matrix = [["f", "f", "f", "f"],
+          ["t", "t", "f", "t"],
+          ["f", "f", "f", "f"],
+          ["f", "f", "f", "f"]]
+
+assert shortestPath((0, 0), (0, 0), mat, []) == 0
+assert shortestPath((0, 1), (0, 0), mat, []) == 1
+assert shortestPath((3, 0), (0, 0), mat, []) == 7
+assert shortestPath((3, 0), (0, 3), mat, []) == 6
+
+

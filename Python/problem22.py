@@ -19,3 +19,8 @@ print(sentenceToList(s, dict))
 s = "bedbathandbeyond"
 dict = ["bed", "bath", "bedbath", "and", "beyond"]
 print(sentenceToList(s, dict))
+
+assert sentenceToList("thequickbrownfox", ['quick', 'brown', 'the', 'fox']) == [
+    'the', 'quick', 'brown', 'fox']
+assert sentenceToList("bedbatha∂ndbeyond", [
+                          'bed', 'bath', 'bedbath', 'and', 'beyond']) == ['bed', 'bath', 'and', 'beyond']

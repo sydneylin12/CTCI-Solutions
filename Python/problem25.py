@@ -68,3 +68,8 @@ def regex(exp, s):
 
 
 print(regex("ra.*az*a", "rayquazzzzzza"))
+
+assert regex("ra.", "ray")
+assert not regex("ra.", "raymond")
+assert regex(".*at", "chat")
+assert not regex(".*at", "chats")

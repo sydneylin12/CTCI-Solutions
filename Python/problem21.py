@@ -4,51 +4,56 @@
 
 def rooms(arr):
 
-    rooms = 0
+    if not arr:
+        return 0
 
-    # Get first node from array as a room
-    while len(arr) > 1:
-        current = arr[0]
-        toRemove = []
+    startDict = dict()
+    endDict = dict()
 
-        # Iterate from 1 to N
-        for i in range(1, len(arr)):
+    # Add start and end times to two dictionaries
+    for start, end in arr:
+        if start not in startDict:
+            startDict[start] = 1
+        else:
+            startDict[start] += 1
 
-            # If there is no overlaps with the currrent room
-            # ONLY REMOVE 1 ROOM
-            if not overlap(current, arr[i]):
-                # Append the room at index i
-                toRemove.append(arr[i])
-                break
-            
-                
-        # Remove all compatible classes from the list
-        for idx in toRemove:
-            arr.remove(idx)
+        if end not in endDict:
+            endDict[end] = 1
+        else:
+            endDict[end] += 1
 
-        # Slice off the first element (get rid of first class)
-        arr = arr[1::]
-        rooms += 1
+    # Get min and max time interval
+    earliest = min(startDict.keys())
+    latest = max(endDict.keys())
+    
+    # Maximum number of classrooms
+    maxClassCount = 0
 
-    return rooms
+    # Number of classrooms to fill current interval
+    currentClassCount = 0
 
-# Helper method runs in O(1)
-def overlap(interval1, interval2):
+    # Iterate through the interval
+    # Dictionary keys are times, values are counts
+    for i in range(earliest, latest):
 
-    # interval 1 start is between interval 2 start and end
-    if interval1[0]  > interval2[0] and interval1[0] < interval2[1]:
-        return True
+        # If the start time is in the dictionary
+        if i in startDict:
+            currentClassCount += startDict[i]
 
-    # interval 1 end is between interval 2 start and end
-    elif interval1[1]  > interval2[0] and interval1[1] < interval2[1]:
-        return True
+            # If another classroom is needed/if current classroom count exceeds max
+            if currentClassCount > maxClassCount:
+                maxClassCount = currentClassCount
 
-    return False
+        # If the end time is in the dictionary
+        if i in endDict:
+            currentClassCount -= endDict[i]
 
-# 2 conflicts
-times = [(30, 75), (0, 50), (60, 150)]
-print(rooms(times))
+    return maxClassCount
 
-# 5 conflicts
-times = [(1, 2), (2, 3), (3, 4), (2, 4), (2, 5), (2, 6), (2, 7)]
-print(rooms(times))
+# Copied test cases from github
+assert rooms([]) == 0
+assert rooms([(30, 75), (0, 50), (60, 150)]) == 2
+assert rooms([(30, 75), (0, 50), (10, 60), (60, 150)]) == 3
+assert rooms([(60, 150)]) == 1
+assert rooms([(60, 150), (150, 170)]) == 2
+assert rooms([(60, 150), (60, 150), (150, 170)]) == 3
