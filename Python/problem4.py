@@ -12,8 +12,7 @@ def missingPositive(arr):
     # Iterate through the array and swap elements to their index
     # EX: element 2 at index 2
     while(i < len(arr)):
-        print(arr)
-
+        
         # Value at index i
         current = arr[i]
 
@@ -38,4 +37,9 @@ def missingPositive(arr):
     
     return i + 1
 
-print(missingPositive([4, -3, -10, 1, 3, 2, 5, 7]))
+assert missingPositive([3, 4, -1, 1]) == 2
+assert missingPositive([1, 2, 0]) == 3
+assert missingPositive([1, 2, 5]) == 3
+assert missingPositive([1]) == 2
+assert missingPositive([-1, -2]) == 1
+assert missingPositive([]) == 1

@@ -10,7 +10,7 @@ class Log:
     # Append to the order list in O(1)
     def record(self, order_id):
         self.orders.append(order_id)
-        if(self.length > self.size):
+        if(self.length + 1 > self.size):
             del self.orders[0]
         else:
             self.length += 1
@@ -22,7 +22,17 @@ class Log:
         return self.orders[self.length - i]
 
 
-log = Log(10)
-for i in range(20):
-    log.record(i)
-print(log.get_last(3))
+log = Log(5)
+log.record(1)
+log.record(2)
+assert log.orders == [1, 2]
+log.record(3)
+log.record(4)
+log.record(5)
+assert log.orders == [1, 2, 3, 4, 5]
+log.record(6)
+log.record(7)
+log.record(8)
+assert log.orders == [4, 5, 6, 7, 8]
+assert log.get_last(4) == 5
+assert log.get_last(1) == 8

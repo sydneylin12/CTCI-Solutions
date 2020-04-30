@@ -1,6 +1,7 @@
 # Problem 7 - find decoding of strings
 # Pass in a string with numbers
 def decode(s):
+    s = str(s)
     if s == "" or len(s) == 0:
         return 1
 
@@ -17,5 +18,8 @@ def decode(s):
     
     return firstSum + secondSum
 
-s = "1122"
-print(decode(s))
+assert decode(81) == 1
+assert decode(11) == 2
+assert decode(111) == 3
+assert decode(1111) == 5
+assert decode(1311) == 4

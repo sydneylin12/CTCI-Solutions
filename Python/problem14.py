@@ -3,21 +3,18 @@ import random
 
 def estimate():
     # 2x2 square with 1 radius
-    radius = 0.5
+    radius = 2
     total = 0
-    trials = 10000000
+    trials = 100000000
 
-    # area of circle = pi * (0.5)^2 = pi/4
-    # area of square = 1 * 1 = 1
+    newRad = pow(radius, 2)
 
     for _ in range(trials):
         x = random.uniform(-radius, radius)
         y = random.uniform(-radius, radius)
 
-        if(pow(x, 2) + pow(y, 2) <= pow(radius, 2)):
+        if pow(x, 2) + pow(y, 2) < newRad:
             total += 1
 
-    newTotal = 4 * (total/trials)
-    print(round(newTotal, 3))
+    return 4 * (total/trials)
 
-estimate()

@@ -10,6 +10,7 @@ def query(s, queries):
             ret.append(query)
     return ret
 
-s = "de"
-queries = ["dog", "deer", "deal", "dead", "dank"]
-print(query(s, queries))
+assert query("de", ["dog", "deer", "deal"]) == ["deer", "deal"]
+assert query("ca", ["cat", "car", "cer"]) == ["cat", "car"]
+assert query("ae", ["cat", "car", "cer"]) == []
+assert query("ae", []) == []

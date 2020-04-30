@@ -3,7 +3,8 @@
 # Find the longest substring that contains at most k distinct characters
 # My solution - O(n^2) time and O(1) space
 
-def findSubstring(k, str):
+def findSubstring(str, k):
+
     # Initialize variables
     subs = []
 
@@ -29,6 +30,10 @@ def findSubstring(k, str):
                 current += str[j]
                 map[str[j]] = 1
     
+    # If the entire thing is acceptable
+    if not subs:
+        return str
+
     current = ""
     # Find the longest one in the set of substrings with k characters
     for substring in subs:
@@ -36,5 +41,8 @@ def findSubstring(k, str):
             current = substring
     return current
 
-print(findSubstring(2, "abcba"))
-
+assert findSubstring("abcba", 2) == "bcb"
+assert findSubstring("abccbba", 2) == "bccbb"
+assert findSubstring("abcbbbabbcbbadd", 2) == "bbbabb"
+assert findSubstring("abcbbbaaaaaaaaaabbcbbadd", 1) == "aaaaaaaaaa"
+assert findSubstring("abccbba", 3) == "abccbba"

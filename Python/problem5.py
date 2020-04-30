@@ -26,11 +26,5 @@ def cdr(pair):
         return b
     return pair(temp)
 
-def main():
-    print(car(cons(3, 4)))
-    print(cdr(cons(3, 4)))
-    print(car(cons(3, cons(4, 5))))
-    print(cdr(cons(3, cons(4, 5))))
-
-if __name__ == "__main__":
-    main()
+assert car(cons(3, 4)) == 3
+assert cdr(cons(3, 4)) == 4

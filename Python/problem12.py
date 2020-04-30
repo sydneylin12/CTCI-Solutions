@@ -13,4 +13,5 @@ def steps(n, ways):
             temp += steps(n - i, ways)
         return temp
 
-print(steps(4, [1, 3, 5]))
+assert steps(4, [1, 2]) == 5
+assert steps(4, [1, 2, 3]) == 7

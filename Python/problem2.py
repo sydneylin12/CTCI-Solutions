@@ -9,6 +9,5 @@ def allProduct(arr):
         arr[i] = int(prod/arr[i])
     return arr
 
-arr = [1, 2, 3, 4, 5]
-print(allProduct(arr))
-print(allProduct([3, 2, 1]))
+assert allProduct([1, 2, 3, 4, 5]) == [120, 60, 40, 30, 24]
+assert allProduct([3, 2, 1]) == [2, 3, 6]
